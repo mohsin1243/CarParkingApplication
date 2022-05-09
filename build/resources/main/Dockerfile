@@ -1,5 +1,5 @@
 FROM openjdk:8
 WORKDIR /app
-ADD build/libs/CarParkingSystem.jar .
+ADD build/libs/CarParkingSytstem-0.0.1-SNAPSHOT.jar .
 EXPOSE 9117
-ENTRYPOINT ["java", "-jar", "CarParkingSystem.jar"]
+ENTRYPOINT ["java", "-jar", "CarParkingSytstem-0.0.1-SNAPSHOT.jar"]
