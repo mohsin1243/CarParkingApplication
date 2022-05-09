@@ -1,0 +1,17 @@
+		==================================
+		  TEAM 4 - CAR PARKING SYSTEM (Receipt)
+		==================================
+----------------------------------
+Receipt Details
+----------------------------------
+Receipt Id : 6
+Date : 2022-05-09
+----------------------------------
+Customer Details
+----------------------------------
+Customer Id : 2
+Name : Soham
+Phone Number : 9768764857
+Vehicle Number : MH50 AZ6768
+Parking Position : A02
+Entry Time : 14:56:35

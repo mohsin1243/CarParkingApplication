@@ -1,0 +1,53 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'application'
+}
+
+group = 'com.cg'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+task fatJar(type: Jar){
+	manifest {
+		attributes 'Implementation-Title': 'Gradle Jar File Example',
+			'Implementation-Version': version,
+			'Main-Class': 'com.cg.CarParkingSytstemApplication'
+	}
+	baseName = project.name + '-all'
+	from { configuration.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.6'
+	// Spring Security
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.6.6'
+	// swagger
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+	// implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+	// swagger-ui
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	// implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	implementation "io.springfox:springfox-swagger2:2.9.2"
+	implementation 'io.springfox:springfox-swagger-ui:2.6.0'
+	
+}
+
+tasks.named('bootJar') {
+	launchScript()
+}
+	
+tasks.named('test') {
+	useJUnitPlatform()
+}
