@@ -1,0 +1,100 @@
+http://localhost:9117/api/admin/addManager
+{
+    "id":0,
+    "firstName": "Rohit",
+    "lastName": "Roy",
+    "address":"Mumbai, India",
+    "phoneNumber": "8789894892",
+    "email": "manager1@cp.com",
+    "password": "1234",
+    "role": "MANAGER"
+}
+{
+    "id":0,
+    "firstName": "Rajesh",
+    "lastName": "Kapoor",
+    "address":"Delhi, India",
+    "phoneNumber": "9989489489",
+    "email": "manager2@cp.com",
+    "password": "1234",
+    "role": "MANAGER"
+}
+
+http://localhost:9117/api/admin/addSecurity
+{
+    "firstName": "Suriya",
+    "lastName": "Joshi",
+    "phoneNumber": "6475889997",
+    "securityType": "ENTRY",
+    "address":"Rajasthan",
+    "email": "security1@cp.com",
+    "password": "1234",
+    "role": "SECURITY"
+}
+{
+    "firstName": "Kapil",
+    "lastName": "Pande",
+    "phoneNumber": "6785498998",
+    "securityType": "CHECK",
+    "address":"Delhi",
+    "email": "security2@cp.com",
+    "password": "1234",
+    "role": "SECURITY"
+}
+
+http://localhost:9117/api/admin/addAllSlot/Create/20/VACANT
+
+http://localhost:9117/api/customer/addCustomer
+{
+    "name": "Soham",
+    "vehicleNumber": "MH50 AZ6768",
+    "phoneNumber":"9768764857"
+}
+{
+    "name": "Ranjeet",
+    "vehicleNumber": "MH40 BS5377",
+    "phoneNumber":"685976857"
+}
+{
+    "name": "Dilraj",
+    "vehicleNumber": "MH31 AJ8768",
+    "phoneNumber":"9845948579"
+}
+http://localhost:9117/api/customer/ENTRY/getToken/1
+check by wrong SecurityType
+Check by wrong Customerid
+check if parking is full or not
+Check if it has already issued token or not
+
+http://localhost:9117/api/manager/nearestSlot
+
+http://localhost:9117/api/customer/selectSlot/1/A01
+Check by wrong customerID
+check by Wrong Slot No
+Check without issuing token
+Check with already Alloted Slot
+Check with Occupied or Reserve Slot
+
+http://localhost:9117/api/manager/allSlot
+Needs Manager Login
+
+http://localhost:9117/api/manager/availableSlot
+Needs Manager Login
+
+http://localhost:9117/api/manager/genReceipt/1
+Needs Manager Login
+Check By wrong CustomerId
+Check by CustomerId who has Not Selected Slot
+
+http://localhost:9117/api/manager/genBill/2
+Needs Manager Login
+Check by wrong BillId
+
+http://localhost:9117/api/security/allToken
+Check Token Count
+Chhek Slots
+Check Customer table
+
+
+http://localhost:9117/api/customer/CHECK/verifyParkingSlot/9/A10
+Not Working
