@@ -21,7 +21,7 @@ spec:
           - name:  SPRING_DATASOURCE_USERNAME
             value: postgres
           - name:  SPRING_DATASOURCE_PASSWORD
-            value: password
+            value: 1
           - name: SPRING_DATASOURCE_URL
             value: jdbc:postgresql://10.111.116.122:5432/postgres
 
