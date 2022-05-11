@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name:  server
-        image:  adityakrmaurya/carparking
+        image:  mohsin12435/carparking
         ports:
-        - containerPort: 55544
+        - containerPort: 9117
         env:
           - name:  SPRING_DATASOURCE_USERNAME
             value: postgres
@@ -24,4 +24,3 @@ spec:
             value: password
           - name: SPRING_DATASOURCE_URL
             value: jdbc:postgresql://10.111.116.122:5432/postgres
-
