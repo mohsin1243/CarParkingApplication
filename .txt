@@ -1,0 +1,70 @@
+
+Deploy CarparkingApplication using Docker-Compose
+
+1.Create SpringBoot App
+
+2.Create DockerFile and Add Below Content as per App
+
+3.Generate Jar File of Application
+	a.Add Dependency into build.gradle File to generate Jar
+
+	task fatJar(type: Jar){
+		manifest {
+			attributes 'Implementation-Title': 'Gradle Jar File Example',
+				'Implementation-Version': version,
+				'Main-Class': 'com.cg.CarParkingSytstemApplication'
+			}
+		baseName = project.name + '-all'
+		from { configuration.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+		with jar
+		}
+tasks.named('bootJar') {
+	launchScript()
+}
+
+b.	 Save and Refresh GradleFile
+c.	Goto Project Root Directory and open cmd
+d.	Run : gradle build
+Or building Jar without Test Case : gradle build -x test
+4.	Now, Create Github Repository of Spring Boot Application
+a.	Make sure to remove build/ from gitignore file Otherwise your build Jar file wont be uploaded on github.
+5.	Create EC2 Instance
+a.	In Security Group set Type to All Traffic and Source to Anywhere
+6.	Install/Run Docker using below Command
+sudo yum update -y;sudo yum install docker -y;sudo systemctl start docker;sudo usermod -a -G docker ec2-user;sudo systemctl enable docker;sudo systemctl status docker
+
+docker info : to check it is working or not
+7.	Install Git
+	sudo yum install git
+8.	Re-login your Session
+9.	Now Copy Repository code HTTP URL from Github
+10.	Run Command instance : git clone https://github.com/mossheik/CarParkingApplication.git
+11.	Goto Application Directory Folder 
+cd CarParkingApplication
+12.	Locate and goto Dockerfile
+13.	Then in CarParkingApplication directory and  Run 
+	docker build -t app .
+	docker image ls : to check images
+4.	Install docker-compose
+wget https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64
+
+ls -lrt
+sudo chmod +x docker-compose-linux-x86_64
+ls -lrt
+sudo mv docker-compose-linux-x86_64 docker-compose
+sudo mv docker-compose /usr/local/bin/docker-compose
+docker compose --version
+
+5.	Relogin Session and Create docker-compose.yml file in project root directory
+	vi docker-compose.yml
+
+6.	Run yaml file
+	docker-compose up -d
+	docker-compose ps
+
+
+17.	Copy Public Address from AWS ec2 instance and view application in browser. Port is 8080.
+18.	View Database
+Docker exec -it postgrescontainerid
+Su -l postgres
+psql
